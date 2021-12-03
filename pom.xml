@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.mx.santander.parent-project</groupId>
 		<artifactId>ParentProject</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>1.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.architecture.microserviciobdd</groupId>
 	<artifactId>microserviciobdd</artifactId>
@@ -94,10 +94,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-			</plugin>
+
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -118,28 +115,7 @@
 						<excludes> <exclude>**/*Runner.java</exclude> </excludes>
 					</configuration>
 				</plugin>
-				<plugin>
-					<groupId>net.masterthought</groupId>
-					<artifactId>maven-cucumber-reporting</artifactId>
-					<version>${net.masterthought-cucumber-reporting.version}</version>
-					<executions>
-						<execution>
-							<id>execution</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>generate</goal>
-							</goals>
-							<configuration>
-								<projectName>${project.build.finalName}</projectName>
-								<outputDirectory>${project.build.directory}/cucumber</outputDirectory>
-								<inputDirectory>${project.build.directory}</inputDirectory>
-								<jsonFiles>
-									<param>**/cucumber*.json</param>
-								</jsonFiles>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>
