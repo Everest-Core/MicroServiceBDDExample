@@ -70,7 +70,11 @@
 			<version>${org.junit.vintage.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>7.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

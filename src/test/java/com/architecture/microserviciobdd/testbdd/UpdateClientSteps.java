@@ -2,18 +2,24 @@ package com.architecture.microserviciobdd.testbdd;
 
 import com.architecture.microserviciobdd.models.ClienteDto;
 import io.cucumber.java.en.*;
+import io.cucumber.spring.CucumberContextConfiguration;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 
-import static com.architecture.microserviciobdd.utils.Uri.createUri;
+//import static com.architecture.microserviciobdd.utils.Uri.createUri;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UpdateClientSteps {
+public class UpdateClientSteps  {
 
+    @Autowired
+    private TestConfig uri;
     private RequestSpecification request;
     private Response response;
 
@@ -25,7 +31,7 @@ public class UpdateClientSteps {
 
     @When("ejecute la acción de actualizar")
     public void ejecute_la_acción_de_actualizar() {
-        response = request.when().put(createUri("/api/clientes"));
+       response = request.when().put(uri.getUri()+"/api/clientes");
     }
 
     @Then("se debe devolver un estado aceptado")
